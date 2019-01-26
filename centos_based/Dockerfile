@@ -34,8 +34,7 @@ RUN set -x && \
     sed -i "s:#endif://endif:" cache.c && \
     sed -i "s:EVP_MD_CTX_free://EVP_MD_CTX_free:" cache.c && \
     make && \
-    cp auth-plug.so /mosquitto/config/auth-plug.so && \
-    chown -R mosquitto:mosquitto /mosquitto
+    cp auth-plug.so /mosquitto/config/auth-plug.so
 
 # Clean build directory and unneeded packages
 RUN rm -rf /build && \
@@ -45,7 +44,8 @@ VOLUME ["/mosquitto/data", "/mosquitto/log", "/mosquitto/certs"]
 
 # Set up the entry point script and default command
 COPY docker-entrypoint.sh /
-RUN chown mosquitto:mosquitto /docker-entrypoint.sh && \
+RUN chown -R mosquitto:mosquitto /mosquitto && \
+    chown mosquitto:mosquitto /docker-entrypoint.sh && \
     chmod +x /docker-entrypoint.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
