@@ -13,7 +13,7 @@ RUN yum -y install libuuid-devel c-ares-devel openssl-devel mysql-devel && \
     yum -y install mosquitto-${VERSION}
 
 RUN set -x && \
-    mkdir -p /build /mosquitto/config /mosquitto/data /mosquitto/log && \
+    mkdir -p /build /mosquitto/config /mosquitto/data /mosquitto/log /mosquitto/certs && \
     cd /build && \
     git clone -b v${VERSION} https://github.com/eclipse/mosquitto.git && \
     make -C /build/mosquitto -j "$(nproc)" \
@@ -39,8 +39,6 @@ RUN set -x && \
 # Clean build directory and unneeded packages
 RUN rm -rf /build && \
     yum -y remove epel-release make wget git gcc-c++ libxslt libwebsockets-devel
-
-VOLUME ["/mosquitto/data", "/mosquitto/log", "/mosquitto/certs"]
 
 # Set up the entry point script and default command
 COPY docker-entrypoint.sh /
