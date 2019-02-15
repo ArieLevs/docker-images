@@ -28,6 +28,8 @@ RUN set -x && \
     cp config.mk.in config.mk && \
     sed -i "s:MOSQUITTO_SRC =:MOSQUITTO_SRC = /build/mosquitto:" config.mk && \
     sed -i "s:OPENSSLDIR = /usr:OPENSSLDIR = /mosquitto/certs:" config.mk && \
+    sed -i "s:SUPPORT_DJANGO_HASHERS ?= no:SUPPORT_DJANGO_HASHERS ?= yes:" config.mk && \
+
     sed -i "s:#if OPENSSL_VERSION_NUMBER://if OPENSSL_VERSION_NUMBER:" cache.c && \
     sed -i "s:#else://else:" cache.c && \
     sed -i 's:EVP_MD_CTX \*mdctx = EVP_MD_CTX_new://EVP_MD_CTX \*mdctx = EVP_MD_CTX_new:' cache.c && \
