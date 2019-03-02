@@ -1,7 +1,7 @@
 
 Info
 ----
-Contains Helm Chart
+Helm charts Jenkins deploy agent
 
 Build
 -----
