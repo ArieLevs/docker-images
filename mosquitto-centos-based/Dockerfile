@@ -9,8 +9,10 @@ ENV VERSION=1.5.5
 RUN yum -y install epel-release make wget git gcc-c++ libxslt libwebsockets-devel
 
 # Install permanent packages
-RUN yum -y install libuuid-devel c-ares-devel openssl-devel mysql-devel && \
-    yum -y install mosquitto-${VERSION}
+RUN yum -y install libuuid-devel c-ares-devel openssl-devel mysql-devel
+
+# install mosquitto
+RUN yum -y install mosquitto
 
 RUN set -x && \
     mkdir -p /build /mosquitto/config /mosquitto/data /mosquitto/log /mosquitto/certs && \
@@ -29,7 +31,6 @@ RUN set -x && \
     sed -i "s:MOSQUITTO_SRC =:MOSQUITTO_SRC = /build/mosquitto:" config.mk && \
     sed -i "s:OPENSSLDIR = /usr:OPENSSLDIR = /mosquitto/certs:" config.mk && \
     sed -i "s:SUPPORT_DJANGO_HASHERS ?= no:SUPPORT_DJANGO_HASHERS ?= yes:" config.mk && \
-
     sed -i "s:#if OPENSSL_VERSION_NUMBER://if OPENSSL_VERSION_NUMBER:" cache.c && \
     sed -i "s:#else://else:" cache.c && \
     sed -i 's:EVP_MD_CTX \*mdctx = EVP_MD_CTX_new://EVP_MD_CTX \*mdctx = EVP_MD_CTX_new:' cache.c && \
