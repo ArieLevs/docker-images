@@ -5,6 +5,8 @@ Helm charts Jenkins deploy agent
 
 Build
 -----
-Execute:  
-`docker build -t arielev/helm:0.0.1 .`  
-`docker push arielev/helm:0.0.1`
+Execute:
+```bash
+docker build -t arielev/helm:latest .  
+docker push arielev/helm:latest
+```

@@ -2,7 +2,7 @@ FROM alpine:latest
 
 LABEL maintainer="Arie Lev <levinsonarie@gmail.com>" \
       description="Minimal container with Helm"
-ENV VERSION=2.13.0
+ENV VERSION=2.14.0
 
 RUN apk add --no-cache ca-certificates
 RUN mkdir -p /build && \
@@ -14,9 +14,7 @@ RUN cd /build && \
 
 RUN rm -rf /build
 
-RUN addgroup -S jenkins && adduser -S jenkins -G jenkins
-USER jenkins
-
 RUN helm init --client-only
 RUN helm repo add nalkinscloud "https://arielevs.github.io/Kubernetes-Helm-Charts/" && \
     helm repo update
+RUN helm version --client
