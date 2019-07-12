@@ -2,6 +2,8 @@ Build
 -----
 Execute:
 ```bash
-./build.sh
+dockerRepo=docker.io
+
+./build.sh ${dockerRepo}
 ```  
 

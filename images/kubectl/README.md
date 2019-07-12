@@ -9,7 +9,9 @@ Build
 -----
 Execute to build **latest** version:  
 ```bash
-./build.sh
+dockerRepo=docker.io
+
+./build.sh ${dockerRepo}
 ```
 
 For deploying the image on Kubernetes view [the helm chart](https://github.com/ArieLevs/Kubernetes-Helm-Charts/tree/master/charts/mosquitto)

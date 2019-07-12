@@ -12,6 +12,10 @@ Config file is at: `/mosquitto/config/mosquitto.conf`
 Build
 -----
 Execute:  
-`docker build -t arielev/mosquitto:1.5.5 .`
+```bash
+dockerRepo=docker.io
+
+./build.sh ${dockerRepo}
+```
 
 For deploying the image on Kubernetes view [the helm chart](https://github.com/ArieLevs/Kubernetes-Helm-Charts/tree/master/charts/mosquitto)

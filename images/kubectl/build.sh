@@ -4,5 +4,5 @@ LATEST_VERSION=$(curl -s https://storage.googleapis.com/kubernetes-release/relea
 
 docker build \
     --build-arg KUBECTL_VERSION=${LATEST_VERSION} \
-    -t arielev/kubectl:${LATEST_VERSION} .
-docker push arielev/kubectl:${LATEST_VERSION}
+    -t ${1}/arielev/kubectl:${LATEST_VERSION} .
+docker push ${1}/arielev/kubectl:${LATEST_VERSION}

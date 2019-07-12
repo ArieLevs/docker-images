@@ -4,5 +4,5 @@ VERSION="2.14.0"
 
 docker build \
     --build-arg HELM_VERSION=${VERSION} \
-    -t arielev/helm:${VERSION} .
-docker push arielev/helm:${VERSION}
+    -t ${1}/arielev/helm:${VERSION} .
+docker push ${1}/arielev/helm:${VERSION}
