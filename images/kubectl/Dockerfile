@@ -2,6 +2,7 @@ FROM alpine:latest
 
 LABEL maintainer="Arie Lev <levinsonarie@gmail.com>" \
       description="Minimal container with Kubectl"
+
 ARG KUBECTL_VERSION
 ENV KUBECTL_VERSION $KUBECTL_VERSION
 

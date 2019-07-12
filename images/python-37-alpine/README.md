@@ -13,5 +13,6 @@ tiff-dev tk-dev tcl-dev harfbuzz-dev fribidi-dev
 Build
 -----
 Execute:  
-`docker build -t arielev/python:3.7-alpine .`  
-`docker push arielev/python:3.7-alpine`
+```bash
+./build.sh
+```

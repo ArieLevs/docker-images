@@ -22,3 +22,5 @@ RUN apk add --no-cache \
 
 RUN pip install pybump twine wheel virtualenv
 RUN pip install --upgrade pip
+
+RUN python --version

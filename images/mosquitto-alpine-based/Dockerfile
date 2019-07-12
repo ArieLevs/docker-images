@@ -3,10 +3,14 @@ FROM alpine:3.8
 LABEL maintainer="Arie Lev <levinsonarie@gmail.com>" \
       description="Eclipse Mosquitto MQTT Broker with Auth-Plugin"
 
-ENV VERSION=1.5.5 \
-    DOWNLOAD_SHA256=fcdb47e340864c545146681af7253399cc292e41775afd76400fda5b0d23d668 \
-    GPG_KEYS=A0D6EEA1DCAE49A635A3B2F0779B22DFB3E717B7 \
-    LWS_VERSION=2.4.2
+ARG MOSQUITTO_VERSION
+ENV MOSQUITTO_VERSION $MOSQUITTO_VERSION
+
+ARG LWS_VERSION
+ENV LWS_VERSION $LWS_VERSION
+
+ENV DOWNLOAD_SHA256=fcdb47e340864c545146681af7253399cc292e41775afd76400fda5b0d23d668 \
+    GPG_KEYS=A0D6EEA1DCAE49A635A3B2F0779B22DFB3E717B7
 
 RUN set -x && \
     apk --no-cache add --virtual build-deps \
@@ -38,9 +42,9 @@ RUN set -x && \
         -DLWS_WITH_ZLIB=OFF && \
     make -j "$(nproc)" && \
     rm -rf /root/.cmake && \
-    wget https://mosquitto.org/files/source/mosquitto-${VERSION}.tar.gz -O /tmp/mosq.tar.gz && \
+    wget https://mosquitto.org/files/source/mosquitto-${MOSQUITTO_VERSION}.tar.gz -O /tmp/mosq.tar.gz && \
     echo "$DOWNLOAD_SHA256  /tmp/mosq.tar.gz" | sha256sum -c - && \
-    wget https://mosquitto.org/files/source/mosquitto-${VERSION}.tar.gz.asc -O /tmp/mosq.tar.gz.asc && \
+    wget https://mosquitto.org/files/source/mosquitto-${MOSQUITTO_VERSION}.tar.gz.asc -O /tmp/mosq.tar.gz.asc && \
     export GNUPGHOME="$(mktemp -d)" && \
     found=''; \
     for server in \

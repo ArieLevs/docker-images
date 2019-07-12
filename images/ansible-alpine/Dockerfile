@@ -6,3 +6,5 @@ LABEL maintainer="Arie Lev <levinsonarie@gmail.com>" \
 RUN apk update
 RUN apk add --no-cache \
     ansible
+
+RUN ansible --version

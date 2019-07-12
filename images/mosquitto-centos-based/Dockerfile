@@ -3,7 +3,8 @@ FROM centos:7
 LABEL maintainer="Arie Lev <levinsonarie@gmail.com>" \
       description="Eclipse Mosquitto MQTT Broker with Auth Plugin"
 
-ENV VERSION=1.5.5
+ARG MOSQUITTO_VERSION
+ENV MOSQUITTO_VERSION $MOSQUITTO_VERSION
 
 # Install temp build packages
 RUN yum -y install epel-release make wget git gcc-c++ libxslt libwebsockets-devel
@@ -17,7 +18,7 @@ RUN yum -y install mosquitto
 RUN set -x && \
     mkdir -p /build /mosquitto/config /mosquitto/data /mosquitto/log /mosquitto/certs && \
     cd /build && \
-    git clone -b v${VERSION} https://github.com/eclipse/mosquitto.git && \
+    git clone -b v${MOSQUITTO_VERSION} https://github.com/eclipse/mosquitto.git && \
     make -C /build/mosquitto -j "$(nproc)" \
         WITH_DOCS=no \
         WITH_SRV=yes \
