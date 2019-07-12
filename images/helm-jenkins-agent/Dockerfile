@@ -2,14 +2,15 @@ FROM alpine:latest
 
 LABEL maintainer="Arie Lev <levinsonarie@gmail.com>" \
       description="Minimal container with Helm"
-ENV VERSION=2.14.0
+ARG HELM_VERSION
+ENV HELM_VERSION $HELM_VERSION
 
 RUN apk add --no-cache ca-certificates
 RUN mkdir -p /build && \
     cd /build && \
-    wget https://storage.googleapis.com/kubernetes-helm/helm-v${VERSION}-linux-amd64.tar.gz
+    wget https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz
 RUN cd /build && \
-    tar -zxvf helm-v${VERSION}-linux-amd64.tar.gz && \
+    tar -zxvf helm-v${HELM_VERSION}-linux-amd64.tar.gz && \
     mv linux-amd64/helm /usr/local/bin/helm
 
 RUN rm -rf /build
