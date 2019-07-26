@@ -16,6 +16,10 @@ RUN cd /build && \
 
 RUN rm -rf /build
 
+RUN apk add py-pip
+RUN pip install --upgrade pip
+RUN pip install pybump
+
 RUN helm init --client-only
 RUN helm repo add nalkinscloud "https://arielevs.github.io/Kubernetes-Helm-Charts/" && \
     helm repo update
