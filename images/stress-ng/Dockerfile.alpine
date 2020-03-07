@@ -1,0 +1,11 @@
+FROM alpine:3.11.3
+
+LABEL maintainer="Arie Lev <levinsonarie@gmail.com>" \
+      description="Minimal container with stress-ng"
+
+ARG STRESS_NG_VERSION
+ENV STRESS_NG_VERSION $STRESS_NG_VERSION
+
+RUN apk add stress-ng=${STRESS_NG_VERSION}
+
+CMD ["/usr/local/bin/stress-ng --version"]
