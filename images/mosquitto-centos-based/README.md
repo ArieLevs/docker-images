@@ -10,8 +10,7 @@ Build
 -----
 Execute:  
 ```bash
-dockerRepo=docker.io
-
+export dockerRepo=docker.io
 ./build.sh ${dockerRepo}
 ```
 
