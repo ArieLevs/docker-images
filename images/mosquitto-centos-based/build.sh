@@ -7,6 +7,7 @@ if [ -z "${dockerRepo:=}" ]; then # If 'dockerRepo' is unset
 else # dockerRepo variable has some value
   if [ -z "${push:=}" ]; then # If 'push' is unset
     docker build \
+    --network host \
     --build-arg MOSQUITTO_VERSION=${VERSION} \
     -t ${dockerRepo}/arielev/mosquitto:${VERSION} .
     echo "build does not contain push variable, skipping docker push";

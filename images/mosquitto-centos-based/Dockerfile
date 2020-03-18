@@ -6,7 +6,7 @@ LABEL maintainer="Arie Lev <levinsonarie@gmail.com>" \
 ARG MOSQUITTO_VERSION
 ENV MOSQUITTO_VERSION $MOSQUITTO_VERSION
 
-RUN yum update
+RUN yum -y update
 
 # Install temp build packages
 RUN yum -y install epel-release make wget git gcc-c++ libxslt libwebsockets-devel
