@@ -13,9 +13,8 @@ Build
 -----
 Execute:  
 ```bash
-dockerRepo=docker.io
-
-./build.sh ${dockerRepo}
+export dockerRepo=docker.io
+./build.sh
 ```
 
 For deploying the image on Kubernetes view [the helm chart](https://github.com/ArieLevs/Kubernetes-Helm-Charts/tree/master/charts/mosquitto)
