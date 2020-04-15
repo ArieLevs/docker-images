@@ -1,6 +1,6 @@
 #!/bin/sh -xe
 
-VERSION=v1.0.2
+VERSION=v1.5.1
 
 if [ -z "${dockerRepo:=}" ]; then # If 'dockerRepo' is unset
   echo "'dockerRepo' variable is not set, doing nothing"
