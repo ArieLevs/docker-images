@@ -3,7 +3,7 @@ Info
 ----
 Contains `mariadb-connector-c-dev, gcc`
 
-And pypi `pybump twine wheel virtualenv`
+And pypi `pybump twine wheel flake8 virtualenv`
 
 Also contains `pillow` dependencies 
 ```

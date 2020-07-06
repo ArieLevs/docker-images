@@ -20,7 +20,7 @@ RUN apk add --no-cache \
     harfbuzz-dev \
     fribidi-dev
 
-RUN pip install pybump twine wheel virtualenv
 RUN pip install --upgrade pip
+RUN pip install pybump twine wheel flake8 virtualenv
 
 RUN python --version
