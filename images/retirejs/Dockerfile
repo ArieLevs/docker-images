@@ -1,7 +1,7 @@
 FROM node:12.18.2-alpine
 
 LABEL maintainer="Arie Lev <levinsonarie@gmail.com>" \
-      description="Argo CD cli" \
+      description="node container with retire.js tool" \
       build-date=${BUILD_DATE}
 
 ARG RETIRE_VERSION
