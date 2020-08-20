@@ -1,7 +1,8 @@
 FROM alpine:latest
 
 LABEL maintainer="Arie Lev <levinsonarie@gmail.com>" \
-      description="Minimal container with Kubectl"
+      description="Minimal container with Kubectl" \
+      build-date=${BUILD_DATE}
 
 ARG KUBECTL_VERSION
 ENV KUBECTL_VERSION $KUBECTL_VERSION
