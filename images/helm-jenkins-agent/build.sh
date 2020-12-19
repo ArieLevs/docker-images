@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION="3.0.2"
+VERSION="3.4.2"
 
 docker build \
     --build-arg HELM_VERSION=${VERSION} \
