@@ -1,7 +1,8 @@
 FROM alpine:latest
 
 LABEL maintainer="Arie Lev <levinsonarie@gmail.com>" \
-      description="Minimal container with Helm"
+      description="Minimal container with Helm" \
+      build-date=${BUILD_DATE}
 
 ARG HELM_VERSION
 ENV HELM_VERSION $HELM_VERSION
