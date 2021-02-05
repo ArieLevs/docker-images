@@ -1,10 +1,9 @@
 Mosquitto MQTT Broker Docker file
 =================================
 
-Mosquitto MQTT Broker with Auth-Plug docker image
-
-Is a Linux Centos image,  
-It contains the [mosquitto-auth-plug](https://github.com/jpmens/mosquitto-auth-plug),
+Mosquitto MQTT Broker with Auth-Plug docker image.
+* [mosquitto-auth-plug](https://github.com/jpmens/mosquitto-auth-plug) repo has been archived,
+  latest mosquitto version that was tested is `1.5.5`.
 
 Build
 -----
