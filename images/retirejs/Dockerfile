@@ -1,4 +1,4 @@
-FROM node:12.18.2-alpine
+FROM node:12.21.0-alpine
 
 LABEL maintainer="Arie Lev <levinsonarie@gmail.com>" \
       description="node container with retire.js tool" \
