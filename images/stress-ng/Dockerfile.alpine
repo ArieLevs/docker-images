@@ -1,4 +1,4 @@
-FROM alpine:3.11.3
+FROM alpine:3.11.8
 
 LABEL maintainer="Arie Lev <levinsonarie@gmail.com>" \
       description="Minimal container with stress-ng"
