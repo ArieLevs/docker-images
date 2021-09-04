@@ -3,7 +3,7 @@ Info
 ----
 Contains `mariadb-connector-c-dev, gcc`
 
-And pypi `pybump twine wheel flake8 virtualenv`
+And pypi `pybump twine wheel flake8 virtualenv coverage`
 
 Also contains `pillow` dependencies 
 ```
@@ -14,6 +14,6 @@ Build
 -----
 Execute:  
 ```bash
-export dockerRepo=docker.io
+export dockerRepo=docker.io pythonVersion=3.9-alpine
 ./build.sh
 ```

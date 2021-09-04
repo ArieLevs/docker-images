@@ -1,11 +1,12 @@
-FROM python:3.9-alpine
+ARG PYTHON_VERSION
+
+FROM python:$PYTHON_VERSION
 
 LABEL maintainer="Arie Lev <levinsonarie@gmail.com>" \
-      description="Extended python 3.9 alpine"
+      description="Extended python $PYTHON_VERSION"
 
 RUN apk add --update alpine-sdk
-RUN apk --no-cache add mariadb-connector-c-dev \
-    gcc
+RUN apk --no-cache add mariadb-connector-c-dev gcc
 
 # Pillow dependencies https://pillow.readthedocs.io/en/latest/installation.html
 RUN apk add --no-cache \
@@ -21,8 +22,5 @@ RUN apk add --no-cache \
     fribidi-dev
 
 RUN pip install --upgrade pip
-RUN pip install pybump twine wheel flake8 virtualenv
-
-RUN pip install coverage==5.5
 
 RUN python --version
