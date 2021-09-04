@@ -1,7 +1,7 @@
-FROM python:3.7-alpine
+FROM python:3.9-alpine
 
 LABEL maintainer="Arie Lev <levinsonarie@gmail.com>" \
-      description="Extended python 3.7 alpine"
+      description="Extended python 3.9 alpine"
 
 RUN apk add --update alpine-sdk
 RUN apk --no-cache add mariadb-connector-c-dev \
@@ -22,5 +22,7 @@ RUN apk add --no-cache \
 
 RUN pip install --upgrade pip
 RUN pip install pybump twine wheel flake8 virtualenv
+
+RUN pip install coverage==5.5
 
 RUN python --version
