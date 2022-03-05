@@ -12,7 +12,7 @@ RUN pip install \
     wheel \
     flake8 \
     virtualenv \
-    coverage==5.5 \
+    coverage==6.3.2 \
     pybump
 
 RUN python --version
