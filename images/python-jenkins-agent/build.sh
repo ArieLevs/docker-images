@@ -1,7 +1,7 @@
 #!/bin/sh -xe
 
 if [ -z "${pythonVersion:=}" ]; then # If 'pythonVersion' is unset
-  pythonVersion=3.9-slim
+  pythonVersion=3.11-slim
   echo "'pythonVersion' variable is not set, using python version ${pythonVersion}"
 fi
 
