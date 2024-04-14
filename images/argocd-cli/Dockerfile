@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3.16.9
 
 LABEL maintainer="Arie Lev <levinsonarie@gmail.com>" \
       description="Argo CD cli"
